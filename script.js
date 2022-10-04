@@ -28,7 +28,7 @@ async function getMovies(url) {
   const data = await res.json();
 
   // console.log(data.results.length);
-  showMovies(data.results);
+
 
   if (data.results.length === 0) {
     main.innerHTML = '';
@@ -39,6 +39,9 @@ async function getMovies(url) {
     createErrorEL.innerHTML = `<h1>Oh no 🙅🏻 ! There is no such movie exists </h1>`;
 
     main.appendChild(createErrorEL);
+  }
+  else{
+    showMovies(data.results);
   }
 }
 
