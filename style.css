@@ -42,6 +42,7 @@ header {
   border-radius: 5rem;
   font-family: inherit;
   padding: 0.5rem 1rem;
+  transition: 0.3s all ease-in-out
 }
 
 .search::placeholder {
@@ -54,6 +55,9 @@ header {
   outline: none;
   background-color: var(--primary_color);
   color: #fff;
+  -webkit-box-shadow:0px 0px 9px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 0px 0px 9px 0px rgba(255,255,255,1);
+  box-shadow: 0px 0px 9px 0px rgba(255,255,255,1);
 }
 
 #main {
@@ -69,10 +73,13 @@ header {
   border-radius: 0.3rem;
   overflow: hidden;
   position: relative;
+  transition: 0.3s all ease-in-out
+
 }
 
 .movie-img {
   width: 100%;
+  transition: 0.5s all ease-in-out
 }
 
 .movie-info {
@@ -107,22 +114,35 @@ header {
 }
 
 .overview {
-  background-color: white;
-  padding: 0.8em 0.8em;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 100%;
-  transform: translateY(101%);
-  font-size: 1.8rem;
-  color: #a8a29e;
-  transition: all 0.2s ease;
-  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2);
+  top:0px;
+  left:0px;
+  background-color: rgba(255,255,255,.7);
+  width:100%;
+  height:100%;
+  transition: all .7s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+  clip-path: circle(0% at 100% 100%);
+  font-size: 1.5rem;
+}
+.rating-average{
+  background-color:red;
+  color:white;
 }
 
 .movie:hover .overview {
-  transform: translateY(0);
+  /* transform: translateY(0); */
+  left:0px;
+    transition: all .7s ease-in-out;
+    clip-path: circle(75%);
+    opacity: 70%;
+}
+
+.movie:hover .movie-img{
+  transition-duration: 0.3s;
+  transform: scale(1.5) rotate(15deg);
+  filter: blur(3px);
 }
 
 .footer {
@@ -185,5 +205,12 @@ a {
     border-radius: 0.3rem;
     overflow: hidden;
     position: relative;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .movie:hover{
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+    z-index: 100;
   }
 }

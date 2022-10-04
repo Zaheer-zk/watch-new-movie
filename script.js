@@ -36,7 +36,7 @@ async function getMovies(url) {
     const createErrorEL = document.createElement('div');
     createErrorEL.classList.add('errorHandle');
 
-    createErrorEL.innerHTML = `<h1>Oh no 🙅🏻 ! There is no such movie exists </h1>`;
+    createErrorEL.innerHTML = `<h1>Oh no 🙅🏻 ! There is no such movie exists , please return to Home page or search anything relevant</h1>`;
 
     main.appendChild(createErrorEL);
   }
@@ -50,7 +50,7 @@ function showMovies(movies) {
   main.innerHTML = '';
 
   movies.forEach((movie) => {
-    const { title, poster_path, vote_average, overview, release_date} = movie;
+    const { title, poster_path, vote_average, vote_count, popularity, overview, release_date, adult} = movie;
 
     const createEL = document.createElement('div');
     createEL.classList.add('movie');
@@ -65,10 +65,11 @@ function showMovies(movies) {
         </div>
         <div class="overview">
           <h3 class="overview">
-            Released Date: ${release_date}
-          </h3>
-          <h3 class="overview">
-          Released Date: ${release_date}</br>
+          <p style="font-size:2rem">${title}</p>
+          <p style="font-size:1.5rem">Age Group : ${getAdultStatus(adult)}</p>
+          Released Date:  ${release_date}</br>
+          Ratings: ${vote_average} out of total ${vote_count}</br>
+          Popularity: ${popularity}</br>
           Over View : ${overview}
         </h3>
         </div>
@@ -88,6 +89,15 @@ function getOverviewRating(rating) {
   }
 }
 
+function getAdultStatus(adult){
+  if(adult){
+    return '18+';
+  }
+  else
+  {
+    return '14+'
+  }
+}
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
