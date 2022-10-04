@@ -42,6 +42,7 @@ async function getMovies(url) {
   }
   else{
     showMovies(data.results);
+    console.log(data.results)
   }
 }
 
@@ -49,7 +50,7 @@ function showMovies(movies) {
   main.innerHTML = '';
 
   movies.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    const { title, poster_path, vote_average, overview, release_date} = movie;
 
     const createEL = document.createElement('div');
     createEL.classList.add('movie');
@@ -64,8 +65,12 @@ function showMovies(movies) {
         </div>
         <div class="overview">
           <h3 class="overview">
-            ${overview}
+            Released Date: ${release_date}
           </h3>
+          <h3 class="overview">
+          Released Date: ${release_date}</br>
+          Over View : ${overview}
+        </h3>
         </div>
     `;
 

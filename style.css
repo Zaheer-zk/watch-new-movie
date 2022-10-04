@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Freehand&family=Kaushan+Script&family=Poppins:ital,wght@1,200&family=Poppins:wght@200;400&family=Smooch&display=swap');
 
 :root {
-  --primary_color: #64748b;
-  --secondary_color: #9ca3af;
+  --primary_color: #2e325f;
+  --secondary_color: #212445;
 }
 
 * {
@@ -49,6 +49,8 @@ header {
 }
 
 .search:focus {
+  transition-duration: 0.3s;
+  border-radius: 0rem;
   outline: none;
   background-color: var(--primary_color);
   color: #fff;
