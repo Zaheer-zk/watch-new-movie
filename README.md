@@ -4,4 +4,4 @@
 ## Tech Stack
 
 **Client:** HTML, CSS, JS, API(TMDB).
-# [Demo Link 🚀](https://www.google.com/search?client=firefox-b-d&q=tmdb)
+# [Demo Link 🚀](https://anixmen.netlify.app/)
